@@ -15,7 +15,9 @@ exports.s3Upload = async image => {
       const s3bucket = new AWS.S3({
         accessKeyId: keys.aws.accessKeyId,
         secretAccessKey: keys.aws.secretAccessKey,
-        region: keys.aws.region
+        region: keys.aws.region,
+        endpoint: keys.aws.endpoint,
+        signatureVersion: 'v4'
       });
 
       const params = {
